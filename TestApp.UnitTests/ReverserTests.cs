@@ -24,22 +24,35 @@ public class ReverserTests
     public void Test_ReverseStrings_WithSingleString_ReturnsReversedString()
     {
         // Arrange
-
+        string[] arr = new string[] { "naomI" };
         // Act
-
+        string[] actual = Reverser.ReverseStrings(arr);
+        string[] expected = new string[] { "Imoan" };
         // Assert
-        //Assert.That(result, Is.EqualTo(new[] { "olleH" }));
+        Assert.AreEqual(expected, actual);
     }
 
     [Test]
     public void Test_ReverseStrings_WithMultipleStrings_ReturnsReversedStrings()
     {
-        // TODO: finish test
+        // Arrange
+        string[] arr = new string[] { "naomI", "xiMehTni" };
+        // Act
+        string[] actual = Reverser.ReverseStrings(arr);
+        string[] expected = new string[] { "Imoan", "inTheMix" };
+        // Assert
+        Assert.AreEqual(expected, actual);
     }
 
     [Test]
     public void Test_ReverseStrings_WithSpecialCharacters_ReturnsReversedSpecialCharacters()
     {
-        // TODO: finish test
+        // Arrange
+        string[] arr = new string[] { "naomI$$$", "###xiMehTni%%$$" };
+        // Act
+        string[] actual = Reverser.ReverseStrings(arr);
+        string[] expected = new string[] { "$$$Imoan", "$$%%inTheMix###" };
+        // Assert
+        Assert.AreEqual(expected, actual);
     }
 }

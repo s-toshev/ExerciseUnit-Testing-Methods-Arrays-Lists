@@ -9,22 +9,30 @@ public class EmailTests
     public void Test_IsValidEmail_ValidEmail()
     {
         // Arrange
-        string validEmail = "test@example.com";
+        string validEmail = "test@jairocg.net";
 
         // Act
+        bool actual = Email.IsValidEmail(validEmail);
+        bool expected = true;
 
         // Assert
+        Assert.AreEqual(expected, actual);
     }
 
-    [Test]
-    public void Test_IsValidEmail_InvalidEmail()
+    [TestCase(null, false)]
+    [TestCase(" ", false)]
+    [TestCase("noValidMail", false)]
+    [TestCase("noValidMail.net", false)]
+    [TestCase("noValidMail@net", false)]
+    public void Test_IsValidEmail_InvalidEmail(string invalidMail, bool expected)
     {
-        // TODO: finish test
-    }
+        // Arrange
 
-    [Test]
-    public void Test_IsValidEmail_NullInput()
-    {
-        // TODO: finish test
-    }
+        // Act
+        bool actual = Email.IsValidEmail(invalidMail);  
+        // Assert
+        Assert.AreEqual(expected, actual);
+
+        }
+
 }
