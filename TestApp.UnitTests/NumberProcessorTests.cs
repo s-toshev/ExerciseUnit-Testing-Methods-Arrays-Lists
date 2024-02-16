@@ -25,11 +25,14 @@ public class NumberProcessorTests
     public void Test_ProcessNumbers_SquareRootOddNumbers()
     {
         // Arrange
+        List<int> input = new() { 3, 5, 7, 9 };
+        List<double> expected = new() { 1.7320508075688772, 2.23606797749979, 2.6457513110645907, 3 };
 
         // Act
-        
+        List<double> actual = NumberProcessor.ProcessNumbers(input);
+
         // Assert
-        //CollectionAssert.AreEqual(expected, actual);
+        CollectionAssert.AreEqual(expected, actual);
     }
 
     // TODO: finish test
@@ -41,13 +44,24 @@ public class NumberProcessorTests
         List<int> expected = new() { 0 };
 
         // Act
+        List<double> actual = NumberProcessor.ProcessNumbers(input);
 
         // Assert
+        CollectionAssert.AreEqual(expected, actual);
+
     }
 
     [Test]
     public void Test_ProcessNumbers_EmptyInput()
     {
-        // TODO: finish test
+        // Arrange
+        List<int> input = new();
+        List<double> expected = new List<double>();
+
+        // Act
+        List<double> actual = NumberProcessor.ProcessNumbers(input);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, actual);
     }
 }
